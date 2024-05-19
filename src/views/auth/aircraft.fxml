@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.AircraftViewService" spacing="10">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <HBox spacing="10">
+        <Label text="Aircraft ID:" />
+        <TextField fx:id="aircraftIdField" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Model:" />
+        <TextField fx:id="modelField" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Economic Capacity:" />
+        <TextField fx:id="economicCapField" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Business Capacity:" />
+        <TextField fx:id="businessCapField" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="First Capacity:" />
+        <TextField fx:id="firstCapField" />
+    </HBox>
+    <HBox spacing="10">
+        <Button text="Add Aircraft" onAction="#handleAddAircraft" />
+        <Button text="Update Aircraft" onAction="#handleUpdateAircraft" />
+        <Button text="Delete Aircraft" onAction="#handleDeleteAircraft" />
+        <Button text="Get Aircraft by ID" onAction="#handleGetAircraftById" />
+    </HBox>
+    <ListView fx:id="aircraftListView" />
+</VBox>

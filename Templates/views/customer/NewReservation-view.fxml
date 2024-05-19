@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1E253C;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagement.controllers.customer.ReservationActionsController">
+    <children>
+        <ImageView fitHeight="600.0" fitWidth="915.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.83966064453125" AnchorPane.topAnchor="4.0">
+            <image>
+                <Image url="@../../images/hotel.jpg" />
+            </image>
+        </ImageView>
+        <AnchorPane fx:id="back" layoutX="331.0" layoutY="118.0" opacity="0.5" prefHeight="349.0" prefWidth="320.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0" />
+        <Label fx:id="title" alignment="CENTER" layoutX="365.0" layoutY="61.0" text="Add Reservation" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="365.0" />
+      <AnchorPane fx:id="datesPane" layoutX="125.0" layoutY="95.0" prefHeight="78.0" prefWidth="650.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0">
+         <children>
+            <DatePicker fx:id="checkInDate_" prefHeight="30.0" prefWidth="220.0" promptText="Chek In Date" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+            <DatePicker fx:id="checkOutDate_" prefHeight="30.0" prefWidth="220.0" promptText="Chek Out Date" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="15.0" />
+            <AnchorPane fx:id="line" layoutX="460.0" layoutY="38.0" opacity="0.5" prefHeight="30.0" prefWidth="1.0" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="18.0" />
+            <Button layoutY="20.0" mnemonicParsing="false" onAction="#searchRoom" prefHeight="38.0" prefWidth="126.0" text="search rooms" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label fx:id="datesError" alignment="CENTER" contentDisplay="CENTER" layoutY="58.0" prefHeight="17.0" prefWidth="346.0" textFill="RED" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="57.0" />
+         </children>
+      </AnchorPane>
+        <AnchorPane fx:id="filters" layoutX="125.0" layoutY="180.0" prefHeight="29.0" prefWidth="650.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="180.0">
+            <children>
+            <Label fx:id="priceLabel1" layoutX="23.0" layoutY="14.0" text="Room Type" textFill="WHITE" AnchorPane.topAnchor="14.0" />
+            <ComboBox fx:id="typeChoice" layoutX="96.0" layoutY="8.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#filterAvailableRooms" prefHeight="30.0" prefWidth="100.0" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="8.0" />
+            <AnchorPane layoutX="468.0" layoutY="9.0" opacity="0.22" prefHeight="30.0" prefWidth="1.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="230.0" />
+                <Label fx:id="capacityLabel" layoutX="485.0" layoutY="14.0" text="Capacity" textFill="WHITE" AnchorPane.leftAnchor="485.0" AnchorPane.topAnchor="14.0" />
+                <TextField fx:id="priceField" layoutX="337.0" layoutY="8.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#filterAvailableRooms" prefHeight="30.0" prefWidth="75.0" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="8.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <Label fx:id="priceLabel" layoutX="276.0" layoutY="14.0" text="Price/day" textFill="WHITE" AnchorPane.leftAnchor="276.0" AnchorPane.topAnchor="14.0" />
+                <AnchorPane layoutX="458.0" layoutY="8.0" opacity="0.22" prefHeight="30.0" prefWidth="1.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="458.0" AnchorPane.topAnchor="8.0" />
+                <TextField fx:id="capacityField" layoutX="543.0" layoutY="8.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#filterAvailableRooms" prefHeight="30.0" prefWidth="75.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="543.0" AnchorPane.topAnchor="8.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="availableRoomsTable" layoutX="124.0" layoutY="242.0" minWidth="-Infinity" prefHeight="226.0" prefWidth="650.0" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="242.0">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="48.0" text="#" />
+                <TableColumn fx:id="roomNumberCol" prefWidth="88.0" text="Room Number" />
+                <TableColumn fx:id="typeCol" prefWidth="115.0" text="Type" />
+                <TableColumn fx:id="capacityCol" prefWidth="98.0" text="Capacity" />
+                <TableColumn fx:id="price_dayCol" prefWidth="156.0" text="Price/day" />
+            <TableColumn fx:id="totalPriceCol" prefWidth="143.0" text="Total price" />
+            </columns>
+        </TableView>
+        <Label fx:id="selectDatesMsg" alignment="CENTER" layoutX="300.0" layoutY="356.0" prefHeight="30.0" prefWidth="287.0" text="Select check in and check out date " textFill="#02bfe3" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="356.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="rowSelectedError" layoutX="125.0" layoutY="496.0" prefHeight="30.0" prefWidth="213.0" text="No row has been selected" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="125.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/errorIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Button fx:id="backBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="694.0" layoutY="492.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#closeStage" prefHeight="30.0" prefWidth="80.0" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="74.0" AnchorPane.rightAnchor="126.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+      <Label fx:id="noRowsMsg" alignment="CENTER" layoutX="255.0" layoutY="356.0" prefHeight="30.0" prefWidth="396.0" text="No available room match the selected filters" textFill="#02bfe3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="bookRoomBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="586.0" layoutY="494.4" minHeight="-Infinity" mnemonicParsing="false" onAction="#bookRoomWindow" prefHeight="30.0" prefWidth="100.0" text="Book Room" textFill="WHITE" AnchorPane.bottomAnchor="75.20000000000005">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+    </children>
+    <stylesheets>
+        <URL value="@../../css/general.css" />
+        <URL value="@../../css/customer/bookRoomActions.css" />
+        <URL value="@../../css/tableView.css" />
+    </stylesheets>
+</AnchorPane>

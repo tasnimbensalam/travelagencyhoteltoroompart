@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="service.AirlineViewService">
+    <Label text="Airline Management"/>
+    <TextField fx:id="nameField" promptText="Name"/>
+    <TextField fx:id="airlineIdField" promptText="Airline ID"/>
+    <TextField fx:id="conventionField" promptText="Convention"/>
+    <HBox spacing="10">
+        <Button text="Add Airline" onAction="#handleAddAirline"/>
+        <Button text="Update Airline" onAction="#handleUpdateAirline"/>
+        <Button text="Delete Airline" onAction="#handleDeleteAirline"/>
+        <Button text="Get Airline" onAction="#handleGetAirlineById"/>
+    </HBox>
+    <ListView fx:id="airlineListView"/>
+</VBox>

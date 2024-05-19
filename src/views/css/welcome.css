@@ -1,0 +1,22 @@
+#customerLoginBtn{
+    -fx-background-radius:0 20;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color:#f59d51;
+}
+#managerLoginBtn{
+    -fx-background-radius:0 20;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color:#b380b5;
+}
+#adminLoginBtn{
+    -fx-background-radius:0 20;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color:#2dd0bd;
+}
+#back{
+-fx-background-radius:0 40;
+-fx-background-color:rgb(28,36,58);
+}

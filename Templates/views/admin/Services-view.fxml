@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagement.controllers.admin.HomePageController">
+    <children>
+        <ImageView fitHeight="567.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <image>
+                <Image url="@../../images/hotel.jpg" />
+            </image>
+        </ImageView>
+      <Label fx:id="homeLabel" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="42.0" text="Admin Dashboard" AnchorPane.bottomAnchor="569.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="fullnameLabel" alignment="CENTER" layoutX="310.0" layoutY="3.0" prefHeight="25.0" prefWidth="280.0" textFill="WHITE" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" />
+      <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/user.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="logoutLink" focusTraversable="false" layoutX="827.0" layoutY="2.0" onAction="#logout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="870.0" layoutY="3.0" mnemonicParsing="false" onAction="#logout" prefHeight="18.0" prefWidth="25.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+         <graphic>
+            <ImageView fx:id="logoutBtn1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane fx:id="sideBar" prefHeight="568.0" prefWidth="163.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="735.0" AnchorPane.topAnchor="32.0" />
+      <Button fx:id="homeBtn" layoutX="2.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToHome" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Home" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="40.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/homeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="employeeBtn" layoutX="2.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToEmployee" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Employees" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/employeeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="servicesBtn" layoutX="2.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToServices" prefHeight="50.0" prefWidth="156.0" text="Services" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="160.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/servicesIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="feedbackBtn" layoutX="2.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchToFeedback" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="FeedBack" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="220.0">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/invoiceIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="earningBtn" layoutX="12.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToEarning" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Earning" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="280.0">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/earningIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="32.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="768.0">
+         <image>
+            <Image url="@../../images/hotelIcon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="back" layoutX="180.0" layoutY="46.0" opacity="0.71" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="46.0" />
+        <Label fx:id="addedMsg" alignment="CENTER" layoutX="443.0" layoutY="92.0" prefHeight="30.0" prefWidth="186.0" text="Service added successfully" AnchorPane.rightAnchor="272.0" />
+        <Label fx:id="updatedMsg" alignment="CENTER" layoutX="436.59999999999997" layoutY="92.0" prefHeight="30.0" prefWidth="195.0" text="Service updated successfully" AnchorPane.rightAnchor="268.20000000000005" />
+        <Label fx:id="deletedMsg" alignment="CENTER" layoutX="443.0" layoutY="92.0" prefHeight="30.0" prefWidth="185.0" text="Service deleted successfully" AnchorPane.rightAnchor="272.0" />
+        <AnchorPane fx:id="filters" layoutX="217.0" layoutY="127.0" prefHeight="39.0" prefWidth="623.0" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="127.0">
+            <children>
+                <CheckBox fx:id="Available" layoutX="66.0" layoutY="13.0" mnemonicParsing="false" onAction="#filterServices" text="Available" textFill="WHITE" AnchorPane.topAnchor="13.0" />
+                <AnchorPane layoutX="308.0" layoutY="7.0" opacity="0.22" prefHeight="23.0" prefWidth="3.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="308.0" AnchorPane.topAnchor="7.0" />
+                <Label layoutX="371.0" layoutY="12.0" text="Service Name" textFill="WHITE" AnchorPane.topAnchor="12.0" />
+                <TextField fx:id="serviceName_Field" layoutX="456.0" layoutY="7.0" onAction="#filterServices" prefHeight="23.0" prefWidth="128.0" AnchorPane.leftAnchor="456.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="7.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <CheckBox fx:id="Unavailable" layoutX="170.0" layoutY="12.0" mnemonicParsing="false" onAction="#filterServices" text="Anavailable" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+        <TableView fx:id="servicesTable" layoutX="217.0" layoutY="171.0" prefHeight="226.0" prefWidth="624.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="171.0">
+            <columns>
+                <TableColumn fx:id="id____Col" prefWidth="46.0" text="#" />
+                <TableColumn fx:id="serviceNameCol" prefWidth="143.0" text="Service" />
+                <TableColumn fx:id="tableCorreCol" prefWidth="128.8000946044922" text="Corresponding Table" />
+                <TableColumn fx:id="descriptionCol" prefWidth="219.99993896484375" text="Description" />
+            <TableColumn fx:id="statusCol" prefWidth="86.0" text="Status" />
+            </columns>
+        </TableView>
+      <AnchorPane fx:id="addServicePane" layoutX="217.0" layoutY="400.0" prefHeight="127.0" prefWidth="624.0" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="400.0">
+         <children>
+            <Label layoutX="258.0" layoutY="2.0" text="Add Service" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="addServiceBtn" mnemonicParsing="false" onAction="#newService" prefHeight="28.0" prefWidth="50.0" text="add" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="hideAddSBtn" mnemonicParsing="false" onAction="#hideAddPane" prefHeight="28.0" prefWidth="50.0" text="Hide" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <TextField fx:id="serviceNameField" layoutX="110.0" layoutY="45.0" prefHeight="27.0" prefWidth="108.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="406.0" />
+            <TextField fx:id="corrTableField" layoutX="359.0" layoutY="45.0" prefHeight="27.0" prefWidth="108.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="157.0" />
+            <TextField fx:id="descriptionField" layoutX="110.0" layoutY="80.0" prefHeight="27.0" prefWidth="494.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="20.0" />
+            <Label layoutX="24.0" layoutY="47.0" text="Service Name :" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="229.0" layoutY="47.0" text="CorrespondingTable :" textFill="WHITE" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="86.0" text="Description :" textFill="WHITE" AnchorPane.leftAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="statusField" layoutX="528.0" layoutY="45.0" prefHeight="27.0" prefWidth="77.0" text="Unavailable" />
+            <Label layoutX="479.0" layoutY="47.0" text="Status :" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editServicePane" layoutX="217.0" layoutY="400.0" prefHeight="127.0" prefWidth="624.0" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="400.0">
+         <children>
+            <Label layoutX="258.0" layoutY="2.0" text="Edit Service" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="editServiceBtn" mnemonicParsing="false" onAction="#editService" prefHeight="28.0" prefWidth="50.0" text="Save" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="hideEditSBtn" mnemonicParsing="false" onAction="#hideEditPane" prefHeight="28.0" prefWidth="50.0" text="Hide" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <TextField fx:id="serviceNameField1" layoutX="131.0" layoutY="45.0" prefHeight="27.0" prefWidth="115.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="406.0" />
+            <TextField fx:id="corrTableField1" layoutX="440.0" layoutY="45.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="157.0" />
+            <TextField fx:id="descriptionField1" layoutX="131.0" layoutY="80.0" prefHeight="27.0" prefWidth="459.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="20.0" />
+            <Label layoutX="39.0" layoutY="47.0" text="Service Name :" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="300.0" layoutY="47.0" text="CorrespondingTable :" textFill="WHITE" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="86.0" text="Description :" textFill="WHITE" AnchorPane.leftAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="statusField1" layoutX="528.0" layoutY="45.0" prefHeight="27.0" prefWidth="77.0" />
+            <Label layoutX="479.0" layoutY="47.0" text="Status :" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deleteServicePane" layoutX="217.0" layoutY="400.0" prefHeight="127.0" prefWidth="624.0">
+         <children>
+            <Label layoutX="239.0" layoutY="2.0" text="Delete Service" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="deleteServiceBtn" mnemonicParsing="false" onAction="#deleteService" prefHeight="28.0" prefWidth="61.0" text="Delete" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="hideDeleteSBtn" mnemonicParsing="false" onAction="#hideDeletePane" prefHeight="28.0" prefWidth="50.0" text="Hide" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="177.0" layoutY="31.0" text="Are you sure you want to delete" textFill="RED" AnchorPane.topAnchor="31.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="deletedServiceName" alignment="CENTER" layoutX="145.0" layoutY="72.0" prefHeight="28.0" prefWidth="329.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+        <Label fx:id="rowSelectedError" layoutX="219.0" layoutY="542.0" prefHeight="30.0" prefWidth="213.0" text="No row has been selected" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="219.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/errorIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Button fx:id="addBtn" alignment="CENTER" layoutX="599.0" layoutY="539.0" mnemonicParsing="false" onAction="#displayAddPane" prefHeight="30.0" prefWidth="75.0" text="add" AnchorPane.bottomAnchor="31.0" AnchorPane.rightAnchor="226.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/addIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <Button fx:id="editBtn" layoutX="681.0" layoutY="539.0" mnemonicParsing="false" onAction="#displayEditPane" prefHeight="30.0" prefWidth="75.0" text="edit" AnchorPane.bottomAnchor="31.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/editIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <Button fx:id="deleteBtn" layoutX="764.0" layoutY="539.0" mnemonicParsing="false" onAction="#displayDeletePane" prefHeight="30.0" prefWidth="75.0" text="delete" AnchorPane.bottomAnchor="31.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/deleteIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+      <Label layoutX="502.0" layoutY="57.0" text="Services" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+    </children>
+    <stylesheets>
+        <URL value="@../../css/HomePage.css" />
+        <URL value="@../../css/tableView.css" />
+        <URL value="@../../css/admin/service.css" />
+    </stylesheets>
+</AnchorPane>

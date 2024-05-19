@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagement.controllers.employee.manager.HomePageController">
+    <children>
+        <ImageView fitHeight="567.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <image>
+                <Image url="@../../../images/hotel.jpg" />
+            </image>
+        </ImageView>
+      <Label fx:id="homeLabel" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="42.0" text="Manager Dashboard" AnchorPane.bottomAnchor="569.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="fullnameLabel" alignment="CENTER" layoutX="310.0" layoutY="3.0" prefHeight="25.0" prefWidth="280.0" textFill="WHITE" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" />
+      <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/user.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="logoutLink" focusTraversable="false" layoutX="827.0" layoutY="2.0" onAction="#logout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="870.0" layoutY="3.0" mnemonicParsing="false" onAction="#logout" prefHeight="18.0" prefWidth="25.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+         <graphic>
+            <ImageView fx:id="logoutBtn1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane fx:id="sideBar" prefHeight="568.0" prefWidth="163.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="735.0" AnchorPane.topAnchor="32.0" />
+      <Button fx:id="homeBtn" layoutX="2.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="50.0" prefWidth="156.0" text="Home" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="40.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/homeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="roomsBtn" layoutX="2.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchToRoomsDetail" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Rooms detail" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/roomIcon.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <Button fx:id="reservationBtn" layoutX="2.0" layoutY="340.0" mnemonicParsing="false" onAction="#switchToReservation" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Reservations" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="160.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/reservationIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="cleaningBtn" layoutX="2.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToCleaning" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="room cleaning" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="220.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/cleaningIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="maintenanceBtn" layoutX="2.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToMaintenance" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="room maintenance" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="280.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/maintenanceIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="invoiceBtn" layoutX="2.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchToInvoices" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Invoices" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="340.0">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/invoiceIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="complaintBtn" layoutX="2.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToComplaint" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Complaints" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="400.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/complaintIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="32.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="768.0">
+         <image>
+            <Image url="@../../../images/hotelIcon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="back" opacity="0.71" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="46.0" />
+        <Label fx:id="title" alignment="CENTER" layoutX="448.0" layoutY="69.0" text="Home" textFill="WHITE" AnchorPane.leftAnchor="448.0" AnchorPane.rightAnchor="282.0">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font></Label>
+        <Label fx:id="stat1" alignment="CENTER" layoutX="221.0" layoutY="135.0" prefHeight="94.0" prefWidth="195.0" text="Maintenance Staff" textFill="#00ffed" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="135.0" />
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="275.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="182.0">
+            <image>
+                <Image url="@../../../images/maintenanceStaffIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="maintenanceStaffNbr" contentDisplay="CENTER" layoutX="327.0" layoutY="185.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="497.0">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label fx:id="stat2" alignment="CENTER" layoutX="221.0" layoutY="245.0" prefHeight="94.0" prefWidth="195.0" text="Cleaners" textFill="#00ffed" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="245.0" />
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="275.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="275.0">
+            <image>
+                <Image url="@../../../images/cleanerIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="cleanersNbr" contentDisplay="CENTER" layoutX="327.0" layoutY="295.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label fx:id="stat3" alignment="CENTER" layoutX="221.0" layoutY="355.0" prefHeight="94.0" prefWidth="195.0" text="Customers" textFill="#00ffed" AnchorPane.leftAnchor="221.0" />
+        <Label fx:id="stat4" alignment="CENTER" layoutX="221.0" layoutY="463.0" prefHeight="94.0" prefWidth="195.0" text="Reservations" textFill="#00ffed" AnchorPane.leftAnchor="221.0" />
+        <Label fx:id="stat9" alignment="CENTER" layoutX="658.0" layoutY="133.0" prefHeight="94.0" prefWidth="195.0" text="Rooms" textFill="#00ffed" AnchorPane.topAnchor="133.0" />
+        <Label fx:id="stat10" alignment="CENTER" layoutX="658.0" layoutY="243.0" prefHeight="94.0" prefWidth="195.0" text="Occupied Rooms" textFill="#00ffed" AnchorPane.topAnchor="243.0" />
+        <Label fx:id="stat11" alignment="CENTER" layoutX="658.0" layoutY="353.0" prefHeight="94.0" prefWidth="195.0" text="Rooms Needs Maintenance" textFill="#00ffed" />
+        <Label fx:id="stat12" alignment="CENTER" layoutX="658.0" layoutY="461.0" prefHeight="94.0" prefWidth="195.0" text="Rooms Needs Cleaning" textFill="#00ffed" />
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="276.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/customersIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="customersNbr" contentDisplay="CENTER" layoutX="328.0" layoutY="401.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="276.0" layoutY="508.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/reservationIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="reservationsNbr" contentDisplay="CENTER" layoutX="328.0" layoutY="511.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="712.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/roomIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="roomsNbr" contentDisplay="CENTER" layoutX="764.0" layoutY="183.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="712.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/roomIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="occupiedRoomNbr" contentDisplay="CENTER" layoutX="765.0" layoutY="293.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="713.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/maintenanceIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="roomNeedsMaintenanceNbr" contentDisplay="CENTER" layoutX="765.0" layoutY="399.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="713.0" layoutY="506.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/cleaningIcon.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="roomNeedsCleaningNbr" contentDisplay="CENTER" layoutX="765.0" layoutY="509.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </Label>
+      <Label fx:id="stat5" alignment="CENTER" layoutX="438.0" layoutY="134.0" prefHeight="94.0" prefWidth="195.0" text="Complaints" textFill="#00ffed" />
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="492.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/complaintIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="complaintsNbr" contentDisplay="CENTER" layoutX="544.0" layoutY="184.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="stat6" alignment="CENTER" layoutX="438.0" layoutY="244.0" prefHeight="94.0" prefWidth="195.0" text="Tasks" textFill="#00ffed" />
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="492.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/tasksIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="tasksNbr" contentDisplay="CENTER" layoutX="544.0" layoutY="294.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="stat7" alignment="CENTER" layoutX="438.0" layoutY="354.0" prefHeight="94.0" prefWidth="195.0" text="Completed Tasks" textFill="#00ffed" />
+      <Label fx:id="stat8" alignment="CENTER" layoutX="438.0" layoutY="462.0" prefHeight="94.0" prefWidth="195.0" text="Tasks On Hold" textFill="#00ffed" />
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="493.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/completedTaskIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="completedTasksNbr" contentDisplay="CENTER" layoutX="545.0" layoutY="400.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="493.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/incompletedTasksIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="onHoldTasksNbr" contentDisplay="CENTER" layoutX="545.0" layoutY="510.0" prefHeight="27.0" prefWidth="76.0" text="12" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="customersBtn" layoutX="719.0" layoutY="67.0" mnemonicParsing="false" onAction="#switchToCustomers" prefHeight="35.0" prefWidth="134.0" text="Customers">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/customersIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="profileBtn" layoutX="223.0" layoutY="67.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="38.0" prefWidth="100.0" text="Profile">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/userInfoIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+    </children>
+    <stylesheets>
+        <URL value="@../../../css/HomePage.css" />
+        <URL value="@../../../css/statistics.css" />
+    </stylesheets>
+</AnchorPane>

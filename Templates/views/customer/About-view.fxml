@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagement.controllers.customer.CustomerHomePageController">
+    <children>
+        <ImageView fitHeight="567.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <image>
+                <Image url="@../../images/hotel.jpg" />
+            </image>
+        </ImageView>
+      <Label fx:id="homeLabel" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="42.0" text="Customer Dashboard" AnchorPane.bottomAnchor="569.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="fullnameLabel" alignment="CENTER" layoutX="310.0" layoutY="3.0" prefHeight="25.0" prefWidth="280.0" textFill="WHITE" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" />
+      <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/user.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="logoutLink" focusTraversable="false" layoutX="827.0" layoutY="2.0" onAction="#logout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="870.0" layoutY="3.0" mnemonicParsing="false" onAction="#logout" prefHeight="18.0" prefWidth="25.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+         <graphic>
+            <ImageView fx:id="logoutBtn1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane fx:id="sideBar" prefHeight="568.0" prefWidth="163.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="735.0" AnchorPane.topAnchor="32.0" />
+      <Button fx:id="homeBtn" layoutX="2.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToHome" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Home" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="40.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/homeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button fx:id="profileBtn" layoutX="2.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToCustomerInfos" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Profile" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/userInfoIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="roomsBtn" layoutX="2.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchToRoomsDetail" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Rooms detail" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="160.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/roomIcon.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <Button fx:id="servicesBtn" layoutX="2.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToServices" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Services" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="220.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/servicesIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="invoiceBtn" layoutX="2.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchToInvoices" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Invoices" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="280.0">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/invoiceIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="feedbackBtn" layoutX="2.0" layoutY="340.0" mnemonicParsing="false" onAction="#switchToFeedback" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Feedback" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="340.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button fx:id="ComplaintBtn" layoutX="10.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToComplaint" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Complaints" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="400.0">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/complaintIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="aboutBtn" layoutX="2.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToAbout" prefHeight="50.0" prefWidth="156.0" text="About" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="460.0">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/aboutIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <ImageView fitHeight="86.0" fitWidth="89.0" layoutX="42.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="772.0">
+            <image>
+                <Image url="@../../images/hotelIcon.png" />
+            </image>
+        </ImageView>
+      <AnchorPane fx:id="back" opacity="0.71" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="46.0" />
+      <Label layoutX="505.0" layoutY="53.0" text="About" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+        <Label layoutX="294.4" layoutY="338.0" prefHeight="74.0" prefWidth="512.0" text="Our hotel management system aims to make everything in a hotel work smoothly, from booking rooms to handling payments, to ensure customers are happy and things run efficiently." textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="294.4">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="235.2" layoutY="432.0" text="Contact Us" textFill="WHITE" AnchorPane.leftAnchor="235.2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="294.4" layoutY="463.0" prefHeight="40.0" prefWidth="414.0" text="For inquiries or support, our dedicated team is ready to assist you. Reach out to us at :" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="294.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="294.4" layoutY="154.0" prefHeight="31.0" prefWidth="402.0" text="- To pay the invoice, you should proceed to the reception desk" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="294.4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.2" layoutY="129.0" text="Policies" textFill="WHITE" AnchorPane.leftAnchor="235.2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="222.0" prefHeight="40.0" prefWidth="502.0" text="- You can cancel your reservation up to 24 hours before your check-in date " textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="186.0" prefHeight="40.0" prefWidth="512.0" text="- You can cancel the invoice by cancelling the corresponding reservation at least one day before the check-in date " textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.2" layoutY="318.0" text="Goal" textFill="WHITE" AnchorPane.leftAnchor="235.2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="420.0" layoutY="502.0" text="hotelManagementSystem@gmail.com" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/emailIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="420.0" layoutY="521.0" text="05 12 45 78 45" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/phoneIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.8" layoutY="258.0" prefHeight="40.0" prefWidth="502.0" text="- We operate on a unique time system where a day starts at 12:00 PM and ends at 11:59 AM the following day" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="292.8">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+    </children>
+    <stylesheets>
+        <URL value="@../../css/HomePage.css" />
+    </stylesheets>
+</AnchorPane>

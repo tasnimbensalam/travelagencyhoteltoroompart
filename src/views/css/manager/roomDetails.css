@@ -1,0 +1,44 @@
+#roomUpdatedMsg, #roomDeletedMsg, #roomAddedMsg {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-border-radius:10;
+}
+#roomUpdatedMsg {
+    -fx-text-fill: blue;
+    -fx-border-color:blue;
+}
+#roomDeletedMsg {
+    -fx-text-fill: red;
+    -fx-border-color:red;
+}
+#roomAddedMsg {
+    -fx-text-fill: #15ff00;
+    -fx-border-color:#15ff00;
+}
+#addRoomBtn {
+    -fx-padding: 0;
+    -fx-background-color: green;
+    -fx-font-size: 15;
+}
+#editBtn {
+    -fx-padding: 0;
+    -fx-font-size: 15;
+    -fx-background-color: blue;
+}
+#deleteBtn {
+    -fx-padding: 0;
+    -fx-font-size: 15;
+    -fx-background-color: red;
+}
+#filters {
+    -fx-background-color: rgba(21,25,37,255);
+    -fx-background-radius:5;
+}
+#maintenanceAssigningError, #cleaningAssigningError{
+ -fx-font-size: 15;
+ -fx-text-fill: yellow;
+ -fx-font-weight: bold;
+ -fx-border-radius:9;
+ -fx-padding: 1px 2px 1px 2px;
+ -fx-border-color:yellow;
+}

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotelmanagement.controllers.customer.CustomerHomePageController">
+    <children>
+        <ImageView fitHeight="567.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+            <image>
+                <Image url="@../../images/hotel.jpg" />
+            </image>
+        </ImageView>
+      <Label fx:id="homeLabel" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="42.0" text="Customer Dashboard" AnchorPane.bottomAnchor="569.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="fullnameLabel" alignment="CENTER" layoutX="310.0" layoutY="3.0" prefHeight="25.0" prefWidth="280.0" textFill="WHITE" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" />
+      <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/user.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="logoutLink" focusTraversable="false" layoutX="827.0" layoutY="2.0" onAction="#logout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="870.0" layoutY="3.0" mnemonicParsing="false" onAction="#logout" prefHeight="18.0" prefWidth="25.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+         <graphic>
+            <ImageView fx:id="logoutBtn1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane fx:id="sideBar" prefHeight="568.0" prefWidth="163.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="735.0" AnchorPane.topAnchor="32.0" />
+      <Button fx:id="homeBtn" layoutX="2.0" layoutY="39.0" mnemonicParsing="false" onAction="#switchToHome" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Home" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="40.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/homeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button fx:id="profileBtn" layoutX="2.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToCustomerInfos" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Profile" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/userInfoIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="roomsBtn" layoutX="2.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchToRoomsDetail" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Rooms detail" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="160.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/roomIcon.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <Button fx:id="servicesBtn" layoutX="2.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToServices" prefHeight="50.0" prefWidth="156.0" text="Services" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="220.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/servicesIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="invoiceBtn" layoutX="2.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchToInvoices" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Invoices" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="280.0">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/invoiceIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="feedbackBtn" layoutX="2.0" layoutY="340.0" mnemonicParsing="false" onAction="#switchToFeedback" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Feedback" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="340.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button fx:id="ComplaintBtn" layoutX="10.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToComplaint" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="Complaints" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="400.0">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/complaintIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="aboutBtn" layoutX="2.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToAbout" opacity="0.5" prefHeight="50.0" prefWidth="156.0" text="About" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="737.0" AnchorPane.topAnchor="460.0">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/aboutIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <ImageView fitHeight="86.0" fitWidth="89.0" layoutX="42.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="772.0">
+            <image>
+                <Image url="@../../images/hotelIcon.png" />
+            </image>
+        </ImageView>
+      <AnchorPane fx:id="back" opacity="0.71" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="46.0" />
+        <AnchorPane fx:id="filters" layoutX="217.0" layoutY="127.0" prefHeight="31.0" prefWidth="623.0" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="127.0">
+            <children>
+                <CheckBox fx:id="Upcoming" layoutX="12.0" layoutY="7.0" mnemonicParsing="false" onAction="#filteReservations" text="Upcoming" textFill="WHITE" AnchorPane.topAnchor="7.0" />
+                <CheckBox fx:id="Cancelled" layoutX="347.0" layoutY="7.0" mnemonicParsing="false" onAction="#filteReservations" text="Cancelled" textFill="WHITE" AnchorPane.leftAnchor="347.0" AnchorPane.topAnchor="7.0" />
+                <CheckBox fx:id="InProgress" layoutX="100.0" layoutY="7.0" mnemonicParsing="false" onAction="#filteReservations" text="In Progress" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="7.0" />
+                <CheckBox fx:id="CompletedStay" layoutX="206.0" layoutY="7.0" mnemonicParsing="false" onAction="#filteReservations" text="Completed Stay" textFill="WHITE" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="7.0" />
+            </children>
+        </AnchorPane>
+        <Label fx:id="title" layoutX="465.0" layoutY="52.0" text="Booking room" textFill="WHITE" AnchorPane.leftAnchor="465.0" AnchorPane.topAnchor="52.0">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+        <Label fx:id="addedMsg" alignment="CENTER" layoutX="443.0" layoutY="85.0" prefHeight="30.0" prefWidth="185.0" text="Reservation added successfully" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="254.0" />
+        <Label fx:id="updatedMsg" alignment="CENTER" layoutX="443.0" layoutY="85.0" prefHeight="30.0" prefWidth="185.0" text="Reservation updated successfully" AnchorPane.rightAnchor="272.0" />
+        <Label fx:id="deletedMsg" alignment="CENTER" layoutX="443.0" layoutY="85.0" prefHeight="30.0" prefWidth="185.0" text="Reservation cancelled successfully" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="254.0" />
+        <TableView fx:id="reservationTable" layoutX="217.0" layoutY="167.0" prefHeight="333.0" prefWidth="624.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="167.0">
+            <columns>
+                <TableColumn fx:id="id_Col" prefWidth="36.0" text="#" />
+            <TableColumn fx:id="ReservationDateCol" prefWidth="101.0" text="Reservation Date" />
+                <TableColumn fx:id="CheckInDateCol" prefWidth="95.0" text="Check In Date" />
+                <TableColumn fx:id="CheckOutDate" prefWidth="96.0" text="Check Out Date" />
+                <TableColumn fx:id="DurationCol" prefWidth="57.0" text="Duration" />
+                <TableColumn fx:id="roomNbrCol" prefWidth="38.0" text="Room" />
+                <TableColumn fx:id="RoomTypeCol" prefWidth="57.0" text="Type" />
+            <TableColumn fx:id="PriceCol" prefWidth="70.0" text="Price" />
+            <TableColumn fx:id="StatusCol" prefWidth="71.0" text="Status" />
+            </columns>
+        </TableView>
+        <Label fx:id="rowSelectedError" layoutX="215.0" layoutY="539.0" prefHeight="30.0" prefWidth="213.0" text="No row has been selected" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="215.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/errorIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Button fx:id="addBtn" alignment="CENTER" layoutX="624.0" layoutY="539.0" mnemonicParsing="false" onAction="#newReservationWindow" prefHeight="30.0" prefWidth="75.0" text="add" textFill="WHITE" AnchorPane.bottomAnchor="31.0" AnchorPane.rightAnchor="140.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/addIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+        <Button fx:id="deleteBtn" layoutX="766.0" layoutY="539.0" mnemonicParsing="false" onAction="#deleteReservationWindow" prefHeight="30.0" prefWidth="75.0" text="delete" textFill="WHITE" AnchorPane.bottomAnchor="31.0">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/deleteIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+        <Label fx:id="noRowsMsg" layoutX="367.0" layoutY="333.0" prefHeight="30.0" prefWidth="323.0" text="No reservation match the selected filters" textFill="#02bfe3" AnchorPane.leftAnchor="367.0" AnchorPane.topAnchor="333.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="backBtn" layoutX="190.0" layoutY="54.0" mnemonicParsing="false" onAction="#switchToServices" prefHeight="38.0" prefWidth="64.0" textFill="WHITE" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="54.0">
+            <font>
+                <Font size="17.0" />
+            </font>
+         <graphic>
+            <ImageView fx:id="backIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/backIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+        </Button>
+      <Label fx:id="editNotAllowedError" layoutX="214.0" layoutY="504.0" prefHeight="30.0" prefWidth="623.0" text="Changes to the reservation are not permitted within 24 hours of the check-in date !!" AnchorPane.topAnchor="504.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/errorIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+    </children>
+    <stylesheets>
+        <URL value="@../../css/HomePage.css" />
+        <URL value="@../../css/customer/bookRoomActions.css" />
+        <URL value="@../../css/tableView.css" />
+    </stylesheets>
+</AnchorPane>

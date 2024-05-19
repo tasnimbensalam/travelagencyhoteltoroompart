@@ -1,0 +1,63 @@
+#back{
+-fx-background-radius:25;
+-fx-background-color:rgb(28,36,58);
+}
+#homeLabel {
+    -fx-background-color:rgb(28,36,58);
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+    -fx-padding:5px 40px;
+}
+#sideBar {
+    -fx-background-color:rgb(28,36,58);
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+    -fx-padding:5px 40px;
+}
+#splitPane{
+    fx-border-width:0px;
+}
+#logoutLink{
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+#logoutLink:hover{
+    -fx-font-size: 13.3;
+}
+#logoutBtn{
+    -fx-background-color:transparent;
+    -fx-padding:0px
+}#logoutBtn:hover{
+    -fx-scale-X: 1.04;
+    -fx-scale-y: 1.04;
+}
+
+Button{
+    -fx-background-radius:8;
+    -fx-font-size: 17;
+    -fx-text-fill: white;
+    -fx-background-color:rgba(21,25,37,255);
+}
+#pageTitle{
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+#customersBtn:hover {
+    -fx-scale-X: 1.10;
+    -fx-scale-y: 1.05;
+}
+#customersBtn:pressed {
+    -fx-scale-y: .95;
+}
+
+#homeBtn:hover, #profileBtn:hover, #roomsBtn:hover, #servicesBtn:hover, #invoiceBtn:hover, #feedbackBtn:hover, #ComplaintBtn:hover, #aboutBtn:hover, #employeeBtn:hover, #feedbackBtn:hover, #earningBtn:hover, #cleaningBtn:hover, #complaintBtn:hover, #reservationBtn:hover, #maintenanceBtn:hover{
+    -fx-scale-X: 1.0;
+    -fx-scale-y: 1.05;
+    -fx-border-color: rgba(255,255,255,0.5);
+    -fx-border-radius: 10px;
+}
+#homeBtn:pressed, #profileBtn:pressed, #roomsBtn:pressed, #servicesBtn:pressed, #invoiceBtn:pressed, #feedbackBtn:pressed, #ComplaintBtn:pressed, #aboutBtn:pressed, #employeeBtn:pressed, #feedbackBtn:pressed, #earningBtn:pressed, #cleaningBtn:pressed, #complaintBtn:pressed, #reservationBtn:pressed, #maintenanceBtn:pressed, #invoiceBtn:pressed{
+    -fx-scale-y: .98;
+}
+

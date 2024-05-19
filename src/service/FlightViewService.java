@@ -1,0 +1,237 @@
+package service;
+
+import controllers.AircraftController;
+import controllers.AirlineController;
+import controllers.FlightController;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import models.Aircraft;
+import models.Airline;
+import models.Flight;
+
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FlightViewService {
+	
+	@FXML
+    private TextField flighIdField;
+    @FXML
+    private TextField flightNumField;
+    @FXML
+    private TextField flightIdField;
+    @FXML
+    private TextField originField;
+    @FXML
+    private TextField destinationField;
+    @FXML
+    private DatePicker dDepartField;
+    @FXML
+    private DatePicker dArrivalField;
+    @FXML
+    private TextField tDepartField;
+    @FXML
+    private TextField tArrivalField;
+    @FXML
+    private ComboBox<String> aircraftIdField;
+    @FXML
+    private ComboBox<String> airlineIdField;
+
+    @FXML
+    private CheckBox availabilityCheckBox;
+    @FXML
+    private ListView<String> flightListView;
+
+    private FlightController flightController;
+    private AirlineController airlineController;
+    private AircraftController aircraftController;
+
+    public FlightViewService() {
+        flightController = new FlightController();
+        airlineController = new AirlineController();
+        aircraftController = new AircraftController();
+    }
+
+    @FXML
+    private void initialize() {
+        refreshFlightList();
+        aircraftIdField.getItems().addAll(getExistingAircraftIds());
+        airlineIdField.getItems().addAll(getExistingAirlineIds());
+    }
+    private List<String> getExistingAircraftIds() {
+        List<Aircraft> airplanes = aircraftController.getAllAircrafts(); 
+        List<String> listIds = new ArrayList<>();
+        for( Aircraft a : airplanes)
+        {listIds.add(String.valueOf(a.getAircraft_id()));}
+        return listIds ;
+    }
+
+    private List<String> getExistingAirlineIds() {
+        List<Airline> airlines = airlineController.getAllAirlines(); 
+        List<String> listIds = new ArrayList<>();
+        for( Airline a : airlines)
+        {listIds.add(String.valueOf(a.getAirline_id()));}
+        return listIds ;
+ 
+    }
+
+    @FXML
+    private void handleAddFlight() {
+        String flightNum = flightNumField.getText();
+        String origin = originField.getText();
+        String destination = destinationField.getText();
+        LocalDate departDate = dDepartField.getValue();
+        LocalDate arrivalDate = dArrivalField.getValue();
+        String tDepartText = tDepartField.getText();
+        String tArrivalText = tArrivalField.getText();
+        String airlineIdText = airlineIdField.getValue();  
+        String aircraftIdText = aircraftIdField.getValue(); 
+        boolean availability = availabilityCheckBox.isSelected();
+
+        if (flightNum.isEmpty() || origin.isEmpty() || destination.isEmpty() ||
+            departDate == null || arrivalDate == null ||
+            tDepartText.isEmpty() || tArrivalText.isEmpty() ||
+            airlineIdText == null || aircraftIdText == null) { 
+            showAlert("Invalid Input", "Please ensure all fields are filled correctly.", "Some fields are empty.");
+            return;
+        }
+
+        Date dDepart = Date.valueOf(departDate);
+        Date dArrival = Date.valueOf(arrivalDate);
+        Time tDepart = Time.valueOf(tDepartText);
+        Time tArrival = Time.valueOf(tArrivalText);
+        int airlineId = Integer.parseInt(airlineIdText);
+        int aircraftId = Integer.parseInt(aircraftIdText);
+
+        AircraftController aircraftController = new AircraftController();
+        AirlineController airlineController = new AirlineController();
+
+        Aircraft aircraft = aircraftController.getAircraftById(aircraftId);
+        Airline airline = airlineController.getAirlineById(String.valueOf(airlineId));
+
+        if (aircraft == null || airline == null) {
+            showAlert("Invalid Input", "Aircraft or Airline ID is incorrect.", "Please check the IDs and try again.");
+            return;
+        }
+
+        flightController.createFlight(flightNum, origin, destination, dDepart, dArrival, tDepart, tArrival, airline, aircraft, availability);
+        refreshFlightList();
+        clearFields();
+    }
+
+    @FXML
+    private void handleUpdateFlight() {
+        try {
+            int flightId = Integer.parseInt(flightIdField.getText());
+            String flightNum = flightNumField.getText();
+            String origin = originField.getText();
+            String destination = destinationField.getText();
+            LocalDate departDate = dDepartField.getValue();
+            LocalDate arrivalDate = dArrivalField.getValue();
+            String tDepartText = tDepartField.getText();
+            String tArrivalText = tArrivalField.getText();
+            String airlineIdText = airlineIdField.getValue(); 
+            String aircraftIdText = aircraftIdField.getValue(); 
+            boolean availability = availabilityCheckBox.isSelected();
+
+ 
+
+            Date dDepart = Date.valueOf(departDate);
+            Date dArrival = Date.valueOf(arrivalDate);
+            Time tDepart = Time.valueOf(tDepartText);
+            Time tArrival = Time.valueOf(tArrivalText);
+            int airlineId = Integer.parseInt(airlineIdText);
+            int aircraftId = Integer.parseInt(aircraftIdText);
+
+            AircraftController aircraftController = new AircraftController();
+            AirlineController airlineController = new AirlineController();
+
+            Aircraft aircraft = aircraftController.getAircraftById(aircraftId);
+            Airline airline = airlineController.getAirlineById(String.valueOf(airlineId));
+
+            if (aircraft == null || airline == null) {
+                showAlert("Invalid Input", "Aircraft or Airline ID is incorrect.", "Please check the IDs and try again.");
+                return;
+            }
+
+            flightController.updateFlight(flightId, flightNum, origin, destination, dDepart, dArrival, tDepart, tArrival, airline, aircraft, availability);
+            refreshFlightList();
+            clearFields();
+        } catch (Exception e) {
+            showAlert("Invalid Input", "Please ensure all fields are filled correctly.", "Error: " + e.getMessage());
+        }
+    }
+
+
+    @FXML
+    private void handleDeleteFlight() {
+        try {
+            int flightId = Integer.parseInt(flightIdField.getText());
+            boolean success = flightController.deleteFlight(flightId);
+            if (success) {
+                refreshFlightList();
+                clearFields();
+            } else {
+                showAlert("Deletion Failed", "Flight Not Found", "No flight found with the provided ID.");
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Invalid Input", "Please enter a valid flight ID.", "Error: " + e.getMessage());
+        }
+    }
+
+   @FXML
+    private void handleGetFlightById() {
+        try {
+            int flightId = Integer.parseInt(flightIdField.getText());
+            Flight flight = flightController.getFlightById(flightId);
+            if (flight != null) {
+                flightNumField.setText(flight.getFlight_num());
+                originField.setText(flight.getOrigin());
+                destinationField.setText(flight.getDestination());
+                dDepartField.setValue(flight.getD_depart().toLocalDate());
+                dArrivalField.setValue(flight.getD_arrival().toLocalDate());
+                tDepartField.setText(flight.getT_depart().toString());
+                tArrivalField.setText(flight.getT_arrival().toString());
+                aircraftIdField.setPromptText(String.valueOf(flight.getAircraft().getAircraft_id()));
+                airlineIdField.setPromptText(String.valueOf(flight.getAirline().getAirline_id()));
+                availabilityCheckBox.setSelected(flight.getAvailability());
+            } else {
+                showAlert("Not Found", "Flight Not Found", "No flight found with the provided ID.");
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Invalid Input", "Please enter a valid flight ID.", "Error: " + e.getMessage());
+        }
+    }
+
+    private void refreshFlightList() {
+        flightListView.getItems().clear();
+        for (Flight flight : flightController.getAllFlights()) {
+            flightListView.getItems().add(flight.getFlight_id() + "-" + flight.getFlight_num() + " - " + flight.getOrigin() + " - " + flight.getDestination()+" - Aircraft :" + flight.getAircraft().getAircraft_id()+ "-AirLine :"+flight.getAirline().getAirline_id()+"-"+flight.getD_depart() +" - " + flight.getD_arrival()+" - " + flight.getT_depart()+ " - " +flight.getT_arrival());
+        }
+    }
+
+   private void clearFields() {
+        flightNumField.clear();
+       
+        originField.clear();
+        destinationField.clear();
+        dDepartField.setValue(null);
+        dArrivalField.setValue(null);
+        tDepartField.clear();
+        tArrivalField.clear();
+        aircraftIdField.setValue(null);
+        airlineIdField.setValue(null);
+        availabilityCheckBox.setSelected(false);
+    }
+
+    private void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+}
