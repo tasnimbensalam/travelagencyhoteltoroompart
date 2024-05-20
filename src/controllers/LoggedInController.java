@@ -25,7 +25,7 @@ public class LoggedInController implements Initializable {
             @Override
             public void handle(ActionEvent event) { // when user logs out => change scene
                 System.out.println("Logout button clicked."); // Debugging
-                DBUtils.changeScene(event, "/views/auth/logIn.fxml", "Log in", null);
+                DBUtils.changeScene(event, "/views/customer/Login.fxml", "Log in", null);
             }
         });
         

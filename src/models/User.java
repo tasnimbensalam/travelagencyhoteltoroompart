@@ -11,6 +11,8 @@ public class User {
 	    private String address;
 	    private String role;
 	    private String account_status;
+	    public User()
+	    {}
 
 		public User(int userId, String fullName, String cin, String passport, String phone, String email, String password, String address, String role, String account_status) {
 			this.user_id = userId;
@@ -40,7 +42,7 @@ public class User {
 		public int getUserId() {
 			return user_id;
 		}
-		public void setCustomerId(int userId) {
+		public void setUserId(int userId) {
 			this.user_id = userId;
 		}
 		

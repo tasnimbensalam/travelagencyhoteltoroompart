@@ -8,7 +8,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
@@ -16,7 +18,7 @@ public class LoginController implements Initializable {
     private Button btn_login;
 
     @FXML
-    private Button btn_signup;
+    private Hyperlink btn_signup;
 
     @FXML
     private TextField email_field;
@@ -38,8 +40,17 @@ public class LoginController implements Initializable {
         btn_signup.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "/views/auth/signUp.fxml", "Sign up", null);
+                DBUtils.changeScene(event, "/views/customer/Signup.fxml", "Sign up", null);
             }
         });
+    }
+    @FXML
+    private Button closeBtn;
+
+    @FXML
+    private void handleCloseButtonAction() {
+        // Fermeture de l'application JavaFX
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
     }
 }

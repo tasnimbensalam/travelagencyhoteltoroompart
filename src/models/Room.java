@@ -3,14 +3,14 @@ package models;
 public class Room {
     private int room_num;
     private RoomType type;
-    private boolean isAvailable;
+    private int isAvailable;
     private double price;
     private int hotel_id;
 
     public Room(int roomNumber, RoomType type, double pricePerNight, int hotel_id) {
         this.room_num = roomNumber;
         this.type = type;
-        this.isAvailable = true; 
+        this.isAvailable = 1; 
         this.price = pricePerNight;
         this.setHotel_id(hotel_id);
     }
@@ -31,11 +31,11 @@ public class Room {
         this.type = type;
     }
 
-    public boolean isAvailable() {
+    public int isAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(int available) {
         isAvailable = available;
     }
 

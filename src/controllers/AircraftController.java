@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import models.Aircraft;
 
 import connexion.Connexion;
-import models.Aircraft;
+
 
 public class AircraftController {
 	

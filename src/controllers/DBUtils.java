@@ -25,7 +25,8 @@ public class DBUtils {
 
 	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        stage.setTitle(title);
-	        stage.setScene(new Scene(root, 680, 400));
+	        Scene scene = new Scene(root);
+	        stage.setScene(scene);
 	        stage.show();
 
 	        if (fxmlFile.equals("/views/auth/logged.fxml")) { // logged in
@@ -99,7 +100,7 @@ public class DBUtils {
                 Connexion.close(connection);
             }
         }
-    }
+    } 
 
     public static void logInUser(ActionEvent event, String email, String password) {
         Connection connection = null;

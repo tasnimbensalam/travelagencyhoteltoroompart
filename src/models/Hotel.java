@@ -15,6 +15,8 @@ public class Hotel {
     private List<Room> rooms;
     private List<FeedbackHotel> feedbacks;
     private List<HotelReservation> reservations;
+    
+    public Hotel() {}
 
   
     

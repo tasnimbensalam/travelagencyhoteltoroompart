@@ -7,7 +7,7 @@ package models;
 	private int economic_cap;
 	private int business_cap;
 	private int first_cap;
-	
+	 
 	
 	public Aircraft(int aircraft_id, String model, int economic_cap, int business_cap, int first_cap) {
 		super();

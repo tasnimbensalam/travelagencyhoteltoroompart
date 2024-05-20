@@ -1,8 +1,9 @@
 package models;
-
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 public class FeedbackHotel {
 	
-	
+	private int feedback_id;
 	private User client;
     private Hotel hotel;
     private String comment;
@@ -34,6 +35,18 @@ public class FeedbackHotel {
 	public void setComment(String commentaire) {
 		this.comment = commentaire;
 	}
+	public int getFeedback_id() {
+		return feedback_id;
+	}
+	public void setFeedback_id(int feedback_id) {
+		this.feedback_id = feedback_id;
+	}
 
-	
+	public StringProperty clientNameProperty() {
+        return new SimpleStringProperty(client.getFullName());
+    }
+
+    public StringProperty hotelNameProperty() {
+        return new SimpleStringProperty(hotel.getName());
+    }
 }

@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/auth/aircraft.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/views/auth/flight.fxml"));
             Scene scene = new Scene(root);
 
             String cssFile = String.valueOf(getClass().getResource("/views/css/welcome.css"));

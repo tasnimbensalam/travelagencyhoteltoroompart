@@ -13,11 +13,12 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FlightViewService {
-	
-	@FXML
+    @FXML
     private TextField flighIdField;
     @FXML
     private TextField flightNumField;
@@ -39,7 +40,6 @@ public class FlightViewService {
     private ComboBox<String> aircraftIdField;
     @FXML
     private ComboBox<String> airlineIdField;
-
     @FXML
     private CheckBox availabilityCheckBox;
     @FXML
@@ -49,6 +49,11 @@ public class FlightViewService {
     private AirlineController airlineController;
     private AircraftController aircraftController;
 
+    private Map<String, Integer> aircraftNameToIdMap = new HashMap<>();
+    private Map<String, Integer> airlineNameToIdMap = new HashMap<>();
+    private Map<Integer, String> aircraftIdToNameMap = new HashMap<>();
+    private Map<Integer, String> airlineIdToNameMap = new HashMap<>();
+
     public FlightViewService() {
         flightController = new FlightController();
         airlineController = new AirlineController();
@@ -57,25 +62,31 @@ public class FlightViewService {
 
     @FXML
     private void initialize() {
+        populateAircraftComboBox();
+        populateAirlineComboBox();
         refreshFlightList();
-        aircraftIdField.getItems().addAll(getExistingAircraftIds());
-        airlineIdField.getItems().addAll(getExistingAirlineIds());
-    }
-    private List<String> getExistingAircraftIds() {
-        List<Aircraft> airplanes = aircraftController.getAllAircrafts(); 
-        List<String> listIds = new ArrayList<>();
-        for( Aircraft a : airplanes)
-        {listIds.add(String.valueOf(a.getAircraft_id()));}
-        return listIds ;
     }
 
-    private List<String> getExistingAirlineIds() {
-        List<Airline> airlines = airlineController.getAllAirlines(); 
-        List<String> listIds = new ArrayList<>();
-        for( Airline a : airlines)
-        {listIds.add(String.valueOf(a.getAirline_id()));}
-        return listIds ;
- 
+    private void populateAircraftComboBox() {
+        List<Aircraft> aircrafts = aircraftController.getAllAircrafts();
+        for (Aircraft aircraft : aircrafts) {
+            String name = aircraft.getModel(); // Assume getName() method exists in Aircraft class
+            int id = aircraft.getAircraft_id();
+            aircraftIdToNameMap.put(id, name);
+            aircraftNameToIdMap.put(name, id);
+            aircraftIdField.getItems().add(name);
+        }
+    }
+
+    private void populateAirlineComboBox() {
+        List<Airline> airlines = airlineController.getAllAirlines();
+        for (Airline airline : airlines) {
+            String name = airline.getName(); // Assume getName() method exists in Airline class
+            int id = airline.getAirline_id();
+            airlineIdToNameMap.put(id, name);
+            airlineNameToIdMap.put(name, id);
+            airlineIdField.getItems().add(name);
+        }
     }
 
     @FXML
@@ -87,14 +98,14 @@ public class FlightViewService {
         LocalDate arrivalDate = dArrivalField.getValue();
         String tDepartText = tDepartField.getText();
         String tArrivalText = tArrivalField.getText();
-        String airlineIdText = airlineIdField.getValue();  
-        String aircraftIdText = aircraftIdField.getValue(); 
+        String airlineName = airlineIdField.getValue();
+        String aircraftName = aircraftIdField.getValue();
         boolean availability = availabilityCheckBox.isSelected();
 
         if (flightNum.isEmpty() || origin.isEmpty() || destination.isEmpty() ||
             departDate == null || arrivalDate == null ||
             tDepartText.isEmpty() || tArrivalText.isEmpty() ||
-            airlineIdText == null || aircraftIdText == null) { 
+            airlineName == null || aircraftName == null) {
             showAlert("Invalid Input", "Please ensure all fields are filled correctly.", "Some fields are empty.");
             return;
         }
@@ -103,11 +114,8 @@ public class FlightViewService {
         Date dArrival = Date.valueOf(arrivalDate);
         Time tDepart = Time.valueOf(tDepartText);
         Time tArrival = Time.valueOf(tArrivalText);
-        int airlineId = Integer.parseInt(airlineIdText);
-        int aircraftId = Integer.parseInt(aircraftIdText);
-
-        AircraftController aircraftController = new AircraftController();
-        AirlineController airlineController = new AirlineController();
+        int airlineId = airlineNameToIdMap.get(airlineName);
+        int aircraftId = aircraftNameToIdMap.get(aircraftName);
 
         Aircraft aircraft = aircraftController.getAircraftById(aircraftId);
         Airline airline = airlineController.getAirlineById(String.valueOf(airlineId));
@@ -133,21 +141,16 @@ public class FlightViewService {
             LocalDate arrivalDate = dArrivalField.getValue();
             String tDepartText = tDepartField.getText();
             String tArrivalText = tArrivalField.getText();
-            String airlineIdText = airlineIdField.getValue(); 
-            String aircraftIdText = aircraftIdField.getValue(); 
+            String airlineName = airlineIdField.getValue();
+            String aircraftName = aircraftIdField.getValue();
             boolean availability = availabilityCheckBox.isSelected();
-
- 
 
             Date dDepart = Date.valueOf(departDate);
             Date dArrival = Date.valueOf(arrivalDate);
             Time tDepart = Time.valueOf(tDepartText);
             Time tArrival = Time.valueOf(tArrivalText);
-            int airlineId = Integer.parseInt(airlineIdText);
-            int aircraftId = Integer.parseInt(aircraftIdText);
-
-            AircraftController aircraftController = new AircraftController();
-            AirlineController airlineController = new AirlineController();
+            int airlineId = airlineNameToIdMap.get(airlineName);
+            int aircraftId = aircraftNameToIdMap.get(aircraftName);
 
             Aircraft aircraft = aircraftController.getAircraftById(aircraftId);
             Airline airline = airlineController.getAirlineById(String.valueOf(airlineId));
@@ -165,7 +168,6 @@ public class FlightViewService {
         }
     }
 
-
     @FXML
     private void handleDeleteFlight() {
         try {
@@ -182,7 +184,7 @@ public class FlightViewService {
         }
     }
 
-   @FXML
+    @FXML
     private void handleGetFlightById() {
         try {
             int flightId = Integer.parseInt(flightIdField.getText());
@@ -195,8 +197,8 @@ public class FlightViewService {
                 dArrivalField.setValue(flight.getD_arrival().toLocalDate());
                 tDepartField.setText(flight.getT_depart().toString());
                 tArrivalField.setText(flight.getT_arrival().toString());
-                aircraftIdField.setPromptText(String.valueOf(flight.getAircraft().getAircraft_id()));
-                airlineIdField.setPromptText(String.valueOf(flight.getAirline().getAirline_id()));
+                aircraftIdField.setPromptText(aircraftIdToNameMap.get(flight.getAircraft().getAircraft_id()));
+                airlineIdField.setPromptText(airlineIdToNameMap.get(flight.getAirline().getAirline_id()));
                 availabilityCheckBox.setSelected(flight.getAvailability());
             } else {
                 showAlert("Not Found", "Flight Not Found", "No flight found with the provided ID.");
@@ -209,13 +211,20 @@ public class FlightViewService {
     private void refreshFlightList() {
         flightListView.getItems().clear();
         for (Flight flight : flightController.getAllFlights()) {
-            flightListView.getItems().add(flight.getFlight_id() + "-" + flight.getFlight_num() + " - " + flight.getOrigin() + " - " + flight.getDestination()+" - Aircraft :" + flight.getAircraft().getAircraft_id()+ "-AirLine :"+flight.getAirline().getAirline_id()+"-"+flight.getD_depart() +" - " + flight.getD_arrival()+" - " + flight.getT_depart()+ " - " +flight.getT_arrival());
+            String aircraftName = aircraftIdToNameMap.get(flight.getAircraft().getAircraft_id());
+            String airlineName = airlineIdToNameMap.get(flight.getAirline().getAirline_id());
+            flightListView.getItems().add(
+                flight.getFlight_id() + " - " + flight.getFlight_num() + " - " + 
+                flight.getOrigin() + " - " + flight.getDestination() + " - " + 
+                "Aircraft: " + aircraftName + " - " + "Airline: " + airlineName + " - " +
+                flight.getD_depart() + " - " + flight.getD_arrival() + " - " + 
+                flight.getT_depart() + " - " + flight.getT_arrival()
+            );
         }
     }
 
-   private void clearFields() {
+    private void clearFields() {
         flightNumField.clear();
-       
         originField.clear();
         destinationField.clear();
         dDepartField.setValue(null);

@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SignUpController implements Initializable {
 
@@ -17,7 +19,7 @@ public class SignUpController implements Initializable {
     private Button btn_signup;
 
     @FXML
-    private Button btn_login;
+    private Hyperlink btn_login;
 
     @FXML
     private TextField fullname_field;
@@ -54,7 +56,7 @@ public class SignUpController implements Initializable {
 	                    !password_field.getText().isEmpty() && 
 	                    !address_field.getText().isEmpty()) {
 					DBUtils.signUpUser(event, fullname_field.getText(), cin_field.getText(), passport_field.getText(), phone_field.getText(), email_field.getText(), password_field.getText(), address_field.getText());
-					DBUtils.changeScene(event, "/views/auth/signUp.fxml", "Logged !", email_field.getText());
+					DBUtils.changeScene(event, "/views/customer/Signup.fxml", "Logged !", email_field.getText());
 				}
 				else {
 					System.out.println("Please fill out all the fields.");
@@ -71,8 +73,17 @@ public class SignUpController implements Initializable {
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "/views/auth/logIn.fxml", "Log in", null);
+                DBUtils.changeScene(event, "/views/customer/login.fxml", "Log in", null);
             }
         });
+    }
+    @FXML
+    private Button closeBtn;
+
+    @FXML
+    private void handleCloseButtonAction() {
+        // Fermeture de l'application JavaFX
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
     }
 }

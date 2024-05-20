@@ -44,7 +44,7 @@ public class WelcomeController implements Initializable {
     @FXML
     public void switchToCustomerLogin(ActionEvent event) {
         // Redirection vers la vue de connexion client
-        DBUtils.changeScene(event, "/views/auth/logIn.fxml", "Log in", null);
+        DBUtils.changeScene(event, "/views/customer/Login.fxml", "Log in", null);
     }
 
     @FXML

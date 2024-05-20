@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="roomsVBox" xmlns:fx="http://javafx.com/fxml" fx:controller="service.RoomsViewService" minWidth="400" minHeight="300">
+    <children>
+        <!-- Buttons for rooms will be added here dynamically -->
+    </children>
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</VBox>

@@ -129,9 +129,9 @@ public class FlightController {
         Time newTArrival = (t_arrival != null) ? t_arrival : existingFlight.getT_arrival();
         Aircraft newAircraft = (aircraft != null) ? aircraft : existingFlight.getAircraft();
         Boolean newAvailability = (availability != null) ? availability : existingFlight.getAvailability();
-        Airline newAirline =(airline!= null) ? airline : existingFlight.getAirline();
+       Airline newAirline =(airline!= null) ? airline : existingFlight.getAirline();
 
-        String sql = "UPDATE Flight SET flight_num = ?, origin = ?, destination = ?, d_depart = ?, d_arrival = ?, t_depart = ?, t_arrival = ?, airline_id = ?,aircraft_id = ?, availability = ? WHERE flight_id = ?";
+        String sql = "UPDATE Flight SET flight_num = ?, origin = ?, destination = ?, d_depart = ?, d_arrival = ?, t_depart = ?, t_arrival = ?, aircraft_id = ?, availability = ? WHERE flight_id = ?";
         try (Connection conn = Connexion.obtenirConnexion();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -142,10 +142,9 @@ public class FlightController {
             pstmt.setDate(5, newDArrival);
             pstmt.setTime(6, newTDepart);
             pstmt.setTime(7, newTArrival);
-            pstmt.setInt(8, newAirline.getAirline_id());
-            pstmt.setInt(9, newAircraft.getAircraft_id());
-            pstmt.setBoolean(10, newAvailability);
-            pstmt.setInt(11, flightId);
+            pstmt.setInt(8, newAircraft.getAircraft_id());
+            pstmt.setBoolean(9, newAvailability);
+            pstmt.setInt(10, flightId);
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
