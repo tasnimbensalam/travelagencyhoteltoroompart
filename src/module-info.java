@@ -8,6 +8,7 @@ module TravelAgency {
 	  exports controllers;
 	  exports service.homeView;
 	  
+	  opens models to javafx.base;
 	  opens controllers to javafx.graphics,javafx.fxml, javafx.base;
 	  opens service to javafx.graphics,javafx.fxml;
 	  opens service.homeView to javafx.graphics,javafx.fxml, javafx.base;

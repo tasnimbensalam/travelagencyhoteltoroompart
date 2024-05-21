@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="service.HotelDetailViewService">
+    <children>
+        <Label fx:id="hotelNameLabel" text="Hotel Name"/>
+        <Label fx:id="hotelCityLabel" text="Hotel City"/>
+        <!-- Other labels for hotel details -->
+        <VBox fx:id="roomsVBox">
+            <!-- RoomsView will be loaded here -->
+        </VBox>
+    </children>
+</VBox>

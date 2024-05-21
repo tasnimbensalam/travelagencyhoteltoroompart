@@ -70,7 +70,7 @@ public class FlightViewService {
     private void populateAircraftComboBox() {
         List<Aircraft> aircrafts = aircraftController.getAllAircrafts();
         for (Aircraft aircraft : aircrafts) {
-            String name = aircraft.getModel(); // Assume getName() method exists in Aircraft class
+            String name = aircraft.getModel(); 
             int id = aircraft.getAircraft_id();
             aircraftIdToNameMap.put(id, name);
             aircraftNameToIdMap.put(name, id);
@@ -81,7 +81,7 @@ public class FlightViewService {
     private void populateAirlineComboBox() {
         List<Airline> airlines = airlineController.getAllAirlines();
         for (Airline airline : airlines) {
-            String name = airline.getName(); // Assume getName() method exists in Airline class
+            String name = airline.getName(); 
             int id = airline.getAirline_id();
             airlineIdToNameMap.put(id, name);
             airlineNameToIdMap.put(name, id);

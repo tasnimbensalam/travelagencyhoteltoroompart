@@ -2,6 +2,8 @@ package models;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Flight {
     private int flight_id;
@@ -15,6 +17,9 @@ public class Flight {
     private Airline airline;
     private Aircraft aircraft;
     private Boolean availability;
+    
+	private HashMap<String ,Integer> availableSeats;
+	
     public Flight(String flight_num, String origin, String destination, Date d_depart, Date d_arrival, Time t_depart,
 			Time t_arrival, Airline airline, Aircraft aircraft, Boolean availability) {
 	
@@ -28,7 +33,14 @@ public class Flight {
 		this.airline = airline;
 		this.aircraft = aircraft;
 		this.availability = availability;
-	}
+		this.availableSeats = new HashMap<>();
+        this.availableSeats.put("economy", aircraft.getEconomic_cap());
+        this.availableSeats.put("business", aircraft.getBusiness_cap());
+        this.availableSeats.put("first", aircraft.getFirst_cap());
+    }
+	
+    
+ 
 
 	
   
@@ -45,7 +57,19 @@ public class Flight {
         this.setAirline(airline);
         this.aircraft = aircraft;
         this.availability = availability;
+		this.availableSeats = new HashMap<>();
+        this.availableSeats.put("economy", aircraft.getEconomic_cap());
+        this.availableSeats.put("business", aircraft.getBusiness_cap());
+        this.availableSeats.put("first", aircraft.getFirst_cap());
     }
+
+	public Flight() {
+		this.availableSeats = new HashMap<>();
+		
+	}
+
+
+
 
 	public int getFlight_id() {
 		return flight_id;
@@ -133,6 +157,18 @@ public class Flight {
 
 	public void setAirline(Airline airline) {
 		this.airline = airline;
+	}
+
+
+
+
+	public int getAvailableCapacity() {
+		int sum = 0;
+		for (int cap : this.availableSeats.values())
+		{
+			sum += cap ;
+		}		
+		return sum;
 	}
 
    

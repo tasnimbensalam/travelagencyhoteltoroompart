@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class HotelReservation {
@@ -10,7 +11,7 @@ public class HotelReservation {
     private Date check_out;
     private Double totPrice;
 
-    public HotelReservation(int reservationId, Room room, User guest, Date checkInDate, Date checkOutDate, double price) {
+    public HotelReservation(int reservationId, Room room, User guest, Date checkInDate,Date checkOutDate, double price) {
         this.rev_id = reservationId;
         this.room = room;
         this.guest = guest;
@@ -19,7 +20,7 @@ public class HotelReservation {
         this.totPrice = price;
     }
 
-    // Getters and setters for the attributes
+   
     public int getRevId() {
         return rev_id;
     }
@@ -70,4 +71,12 @@ public class HotelReservation {
     public boolean overlaps(Date checkIn, Date checkOut) {
         return !(checkOut.before(check_in) || checkIn.after(check_out));
     }
+
+
+	public User getUserId() {
+		// TODO Auto-generated method stub
+		return guest;
+	}
+
+
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="service.HotelsViewService">
+    <children>
+        <TextField fx:id="searchField" promptText="Search by hotel name"/>
+        <Button text="Search" onAction="#handleSearch"/>
+        <VBox fx:id="hotelsVBox">
+            <!-- Buttons and other elements will be added programmatically -->
+        </VBox>
+    </children>
+</VBox>

@@ -3,6 +3,9 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Hotel {
 	private int hotel_id ;
 	private String name;
@@ -76,7 +79,9 @@ public class Hotel {
     public String getName() {
         return name;
     }
-
+    public StringProperty nameProperty() {
+        return new SimpleStringProperty(name);
+    }
     public void setName(String name) {
         this.name = name;
     }

@@ -1,20 +1,15 @@
 package service;
 
-import java.io.IOException;
 import java.util.List;
 
 import controllers.RoomController;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
 import models.Room;
 import models.RoomType;
@@ -121,6 +116,15 @@ public class RoomViewService {
         return null;
     }
 
+    public static RoomType getRoomType(String roomTypeStr) {
+        try {
+            return RoomType.valueOf(roomTypeStr.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid room type: " + roomTypeStr);
+            return null; // or handle the error appropriately
+        }
+    }
+
     private void selectRoomTypeRadioButton(RoomType type) {
         switch (type) {
             case SINGLE:
@@ -137,6 +141,7 @@ public class RoomViewService {
                 break;
         }
     }
+
 
     private void showAlert(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -158,20 +163,5 @@ public class RoomViewService {
         }
     }
 
-    private void openReservationView(Room room) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth/MakeReservation.fxml"));
-            Parent root = loader.load();
-
-            MakeReservationViewService reservationController = loader.getController();
-            reservationController.setSelectedRoom(room);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
 }

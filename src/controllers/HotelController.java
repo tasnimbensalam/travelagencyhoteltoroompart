@@ -31,7 +31,7 @@ public class HotelController {
         }
     }
 
-    public List<Hotel> getAllHotels() {
+    public static List<Hotel> getAllHotels() {
         List<Hotel> hotels = new ArrayList<>();
         String sql = "SELECT * FROM hotel";
         try (Connection conn = Connexion.obtenirConnexion();

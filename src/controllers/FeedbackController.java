@@ -115,4 +115,10 @@ public class FeedbackController {
             e.printStackTrace();
         }
     }
+    public List<FeedbackHotel> getFeedbacksByHotel(int hotelId) {
+        // Implement this method to fetch feedbacks from the database or data source by hotel ID
+        // For example:
+        // return feedbackRepository.findFeedbacksByHotelId(hotelId);
+        return List.of(); // Replace this with actual implementation
+    }
 }

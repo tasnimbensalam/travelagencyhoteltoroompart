@@ -7,7 +7,9 @@ import connexion.Connexion;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FlightController {
 
@@ -107,7 +109,7 @@ public class FlightController {
                 Aircraft aircraft = aircraftController.getAircraftById(aircraftId);
                 return new Flight(flightId, flight_num, origin, destination, d_depart, d_arrival, t_depart, t_arrival,airline, aircraft, availability);
             }
-
+ 
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -172,6 +174,38 @@ public class FlightController {
         }
         return false;
     }
+    
+    
+    public List<Flight> searchFlights(String origin, String destination, Date d_depart, int nb_passengers) {
+        List<Flight> flights = new ArrayList<>();
+        String sql = "SELECT * FROM flight WHERE origin = ? AND destination = ? AND d_depart >= ?";
+
+        try (Connection conn = Connexion.obtenirConnexion();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, origin);
+            pstmt.setString(2, destination);
+            pstmt.setDate(3, d_depart);
+           
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                	int flightId= rs.getInt("flight_id");
+                    Flight flight = this.getFlightById(flightId);
+                    if (flight != null && flight.getAvailableCapacity() >= nb_passengers) { 
+                        flights.add(flight);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flights;
+    }
+
+
+
+
 
     
 }

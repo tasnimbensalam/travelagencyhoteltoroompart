@@ -1,5 +1,8 @@
 package models;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class User {
 	 private int user_id;
 	    private String fullName;
@@ -38,6 +41,7 @@ public class User {
 			this.account_status = account_status;
 			this.setRole(role);
 		}
+		
 		
 		public int getUserId() {
 			return user_id;
@@ -109,7 +113,9 @@ public class User {
 		public void setAccountStatus(String account_status) {
 			this.account_status = account_status;
 		}
-		
+		 public StringProperty fullNameProperty() {
+		        return new SimpleStringProperty(fullName);
+		    }
 		
 		@Override
 		public String toString() {
